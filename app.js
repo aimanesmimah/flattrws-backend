@@ -1,5 +1,6 @@
 var express = require('express');
 var middlewares = require('./middlewares');
+var oauthConfig = require('./config/oauthConfig');
 
 var port = normalizePort(process.env.PORT || '4000');
 
@@ -11,6 +12,22 @@ app.set('port', port);
 
 app.get('/',(req,res)=> {
     res.json({success:true});
+});
+
+app.get('/authenticate',(req,res)=> {
+    console.log(oauthConfig.authUri());
+    res.redirect(oauthConfig.authUri());
+});
+
+app.get('/flattr',(req,res)=> {
+    const options = {
+        code : req.query.code
+    }
+
+    const result = oauthConfig.getAuthToken(options);
+
+    res.json(result);
+
 });
 
 app.listen(port,()=> {
