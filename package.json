@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.2",
-    "flattr": "^0.7.3"
+    "flattr": "^0.7.3",
+    "simple-oauth2": "^1.5.0"
   }
 }
