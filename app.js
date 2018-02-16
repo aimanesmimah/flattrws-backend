@@ -2,7 +2,7 @@ var express = require('express');
 var middlewares = require('./middlewares');
 var oauthConfig = require('./config/oauthConfig');
 
-var port = normalizePort(process.env.PORT || '4000');
+var port = normalizePort(process.env.PORT || '7000');
 
 
 const app = express()
@@ -24,9 +24,15 @@ app.get('/flattr',(req,res)=> {
         code : req.query.code
     }
 
-    const result = oauthConfig.getAuthToken(options);
+    oauthConfig.getAuthToken(options).then(
+        result => {
+            res.json(result);
+        },
+        error => {
+            res.json({success:false , message : "unexpected error has occured"});
+        }
+    );
 
-    res.json(result);
 
 });
 

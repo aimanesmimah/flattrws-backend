@@ -1,4 +1,4 @@
-
+var flattr = require('flattr');
 
 module.exports.config = {
     client_id: 'qALnzUlXSMC4C4UFvp0kBdtPI3yhm2yW',
@@ -11,7 +11,12 @@ module.exports.config = {
 
 
 module.exports.getAuthenticatedUser = token => {
-    flattr.users.get_auth(token, function (data) {
-        return data;
-    });
+
+
+        return new Promise((resolve,reject) => {
+
+            flattr.users.get_auth(token, function (data) {
+                  resolve(data);
+            });
+        });
 }
