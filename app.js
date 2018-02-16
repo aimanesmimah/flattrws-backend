@@ -6,6 +6,11 @@ var port = normalizePort(process.env.PORT || '7000');
 
 
 const app = express()
+    .use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+    })
     .use(middlewares.logger);
 
 app.set('port', port);
