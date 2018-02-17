@@ -25,8 +25,8 @@ app.get('/',(req,res)=> {
 app.get('/authenticate',(req,res)=> {
     console.log(oauthConfig.authUri());
 
-    //res.json({redirectUrl : oauthConfig.authUri()});
-    res.send('url sent');
+    res.json({redirectUrl : oauthConfig.authUri()});
+
 });
 
 app.get('/flattr',(req,res)=> {
