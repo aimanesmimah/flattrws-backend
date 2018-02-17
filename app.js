@@ -14,6 +14,8 @@ app.use(function(req, res, next) {
     next();
 });
 
+
+
 app.set('port', port);
 
 app.get('/',(req,res)=> {
@@ -23,7 +25,7 @@ app.get('/',(req,res)=> {
 app.get('/authenticate',(req,res)=> {
     console.log(oauthConfig.authUri());
 
-    res.redirect(oauthConfig.authUri());
+    res.json({redirectUrl : oauthConfig.authUri()});
 });
 
 app.get('/flattr',(req,res)=> {
