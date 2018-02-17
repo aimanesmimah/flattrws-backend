@@ -8,7 +8,7 @@ var port = normalizePort(process.env.PORT || '7000');
 const app = express().use(middlewares.logger);
 
 app.use(function(req, res, next) {
-    res.setHeader("Access-Control-Allow-Origin", "https://flattr.com/oauth/authorize");
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
