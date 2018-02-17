@@ -46,6 +46,26 @@ app.get('/flattr',(req,res)=> {
 
 });
 
+app.get('/getToken/:code',(req,res)=> {
+    const code = req.params.code;
+
+    if(code) {
+        const options = {code}
+
+        oauthConfig.getAuthToken(options).then(
+            result => {
+                res.json(result);
+            },
+            error => {
+                res.json({success:false , message : "unexpected error has occured"});
+            }
+        )
+    }
+    else{
+        res.json({success : false , message : "your authentication code is invalid"});
+    }
+});
+
 app.listen(port,()=> {
     console.log(`express server running on port : ${port}`);
 });
