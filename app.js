@@ -38,8 +38,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 firebaseConfig.addOneItem('ffffffffff',payload).then(items => {
     console.log(items)
-}).catch(err => console.log("app.js " + err));
-*/
+}).catch(err => console.log("app.js " + err));*/
+
+//firebaseConfig.removeAllItems('ffhjgjhgfff');
 
 app.set('port', port);
 
@@ -122,6 +123,14 @@ app.get('/firebase/items/:id',(req,res)=> {
    }, err => {
        res.json({success : false,message : "an expected error happened. try again"})
    });
+});
+
+app.get('/firebase/deleteAll/:id',(req,res) => {
+    var userId = req.params.id;
+
+   firebaseConfig.removeAllItems(userId);
+
+   res.json({success : true , message : "items removed successfully"});
 });
 
 app.listen(port,()=> {

@@ -70,3 +70,9 @@ module.exports.removeOneItem = (userId,collectionId) => {
 
 }
 
+module.exports.removeAllItems =  userId => {
+    var userRef = markedItemsRef.child(userId);
+
+    userRef.remove();
+}
+
