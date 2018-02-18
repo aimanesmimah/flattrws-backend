@@ -27,14 +27,6 @@ app.use(function(req, res, next) {
     });
 */
 
-var payload = {
-    name : "abdeslam",
-    pass : "smimah"
-}
-
-firebaseConfig.addOneItem('ddddddddddd',payload).then(items => {
-    console.log(items);
-});
 
 app.set('port', port);
 
