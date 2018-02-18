@@ -83,8 +83,36 @@ app.get('/getToken/:code',(req,res)=> {
 });
 
 app.post('/firebase/add',(req,res)=> {
-    console.log(req.body);
-    res.json({success : true});
+    var userId = req.body.userId;
+    var item = req.body.markedItem;
+
+    firebaseConfig.addOneItem(userId,item).then(newItems => {
+        res.json({success : true, message : "item added successfully", items : newItems });
+    }, err=> {
+        res.json({success : false,message : "an expected error happened. try again"})
+    });
+
+});
+
+app.get('/firebase/delete/:userId/:itemId',(req,res)=> {
+   var userId = req.params.userId;
+   var collectionId = req.params.itemId;
+
+   firebaseConfig.removeOneItem(userId,collectionId).then(newItems => {
+      res.json({success : true, message : "item removed successfully", items : newItems })
+   },err=>{
+       res.json({success : false,message : "an expected error happened. try again"})
+  });
+});
+
+app.get('/firebase/items/:id',(req,res)=> {
+    var userId = req.params.id;
+
+   firebaseConfig.getMarkedItems(userId).then(items => {
+       res.json({success : true, message : "item retrieved successfully", items : items })
+   }, err => {
+       res.json({success : false,message : "an expected error happened. try again"})
+   });
 });
 
 app.listen(port,()=> {

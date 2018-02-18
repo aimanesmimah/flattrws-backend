@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="735a711a-e428-4fec-a659-f1930a01d672" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/firebaseConfig.js" afterPath="$PROJECT_DIR$/config/firebaseConfig.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,8 +20,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="40" lean-forward="false" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
+            <state relative-caret-position="345">
+              <caret line="104" column="0" lean-forward="true" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -30,8 +30,8 @@
       <file leaf-file-name="firebaseConfig.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/firebaseConfig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="48" column="1" lean-forward="true" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+            <state relative-caret-position="176">
+              <caret line="61" column="77" lean-forward="false" selection-start-line="61" selection-start-column="77" selection-end-line="61" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -73,8 +73,8 @@
             <state relative-caret-position="90">
               <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="11" />
               <folding>
-                <marker date="1518922474367" expanded="true" signature="101:114" ph="{&quot;start&quot;: &quot;node ./app.js&quot;...}" />
-                <marker date="1518922474367" expanded="true" signature="314:374" ph="{&quot;express&quot;: &quot;^4.16.2&quot;...}" />
+                <marker date="1518961131679" expanded="true" signature="101:114" ph="{&quot;start&quot;: &quot;node ./app.js&quot;...}" />
+                <marker date="1518961131679" expanded="true" signature="344:404" ph="{&quot;express&quot;: &quot;^4.16.2&quot;...}" />
               </folding>
             </state>
           </provider>
@@ -109,8 +109,8 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/config/oauthConfig.js" />
         <option value="$PROJECT_DIR$/config/flattrConfig.js" />
-        <option value="$PROJECT_DIR$/config/firebaseConfig.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/config/firebaseConfig.js" />
       </list>
     </option>
   </component>
@@ -131,8 +131,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="134" />
-    <option name="y" value="86" />
+    <option name="x" value="92" />
+    <option name="y" value="106" />
     <option name="width" value="1200" />
     <option name="height" value="633" />
   </component>
@@ -219,23 +219,24 @@
       <workItem from="1518810870385" duration="15533000" />
       <workItem from="1518840526667" duration="1744000" />
       <workItem from="1518913510865" duration="13849000" />
-      <workItem from="1518958773119" duration="2070000" />
+      <workItem from="1518958773119" duration="3867000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35096000" />
+    <option name="totallyTimeSpent" value="36893000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="134" y="86" width="1200" height="633" extended-state="0" />
+    <frame x="92" y="106" width="1200" height="633" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23666093" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24547283" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28772637" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41851106" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09054326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -303,8 +304,8 @@
         <state relative-caret-position="90">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="11" />
           <folding>
-            <marker date="1518922474367" expanded="true" signature="101:114" ph="{&quot;start&quot;: &quot;node ./app.js&quot;...}" />
-            <marker date="1518922474367" expanded="true" signature="314:374" ph="{&quot;express&quot;: &quot;^4.16.2&quot;...}" />
+            <marker date="1518961131679" expanded="true" signature="101:114" ph="{&quot;start&quot;: &quot;node ./app.js&quot;...}" />
+            <marker date="1518961131679" expanded="true" signature="344:404" ph="{&quot;express&quot;: &quot;^4.16.2&quot;...}" />
           </folding>
         </state>
       </provider>
@@ -354,8 +355,8 @@
         <state relative-caret-position="90">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <marker date="1518922474367" expanded="true" signature="101:114" ph="{&quot;start&quot;: &quot;node ./app.js&quot;...}" />
-            <marker date="1518922474367" expanded="true" signature="314:374" ph="{&quot;express&quot;: &quot;^4.16.2&quot;...}" />
+            <marker date="1518961131679" expanded="true" signature="101:114" ph="{&quot;start&quot;: &quot;node ./app.js&quot;...}" />
+            <marker date="1518961131679" expanded="true" signature="344:404" ph="{&quot;express&quot;: &quot;^4.16.2&quot;...}" />
           </folding>
         </state>
       </provider>
@@ -405,8 +406,8 @@
         <state relative-caret-position="90">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <marker date="1518922474367" expanded="true" signature="101:114" ph="{&quot;start&quot;: &quot;node ./app.js&quot;...}" />
-            <marker date="1518922474367" expanded="true" signature="314:374" ph="{&quot;express&quot;: &quot;^4.16.2&quot;...}" />
+            <marker date="1518961131679" expanded="true" signature="101:114" ph="{&quot;start&quot;: &quot;node ./app.js&quot;...}" />
+            <marker date="1518961131679" expanded="true" signature="344:404" ph="{&quot;express&quot;: &quot;^4.16.2&quot;...}" />
           </folding>
         </state>
       </provider>
@@ -456,8 +457,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1518922474367" expanded="true" signature="101:114" ph="{&quot;start&quot;: &quot;node ./app.js&quot;...}" />
-            <marker date="1518922474367" expanded="true" signature="314:374" ph="{&quot;express&quot;: &quot;^4.16.2&quot;...}" />
+            <marker date="1518961131679" expanded="true" signature="101:114" ph="{&quot;start&quot;: &quot;node ./app.js&quot;...}" />
+            <marker date="1518961131679" expanded="true" signature="344:404" ph="{&quot;express&quot;: &quot;^4.16.2&quot;...}" />
           </folding>
         </state>
       </provider>
@@ -491,8 +492,8 @@
         <state relative-caret-position="90">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="11" />
           <folding>
-            <marker date="1518922474367" expanded="true" signature="101:114" ph="{&quot;start&quot;: &quot;node ./app.js&quot;...}" />
-            <marker date="1518922474367" expanded="true" signature="314:374" ph="{&quot;express&quot;: &quot;^4.16.2&quot;...}" />
+            <marker date="1518961131679" expanded="true" signature="101:114" ph="{&quot;start&quot;: &quot;node ./app.js&quot;...}" />
+            <marker date="1518961131679" expanded="true" signature="344:404" ph="{&quot;express&quot;: &quot;^4.16.2&quot;...}" />
           </folding>
         </state>
       </provider>
@@ -515,16 +516,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/firebaseConfig.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="48" column="1" lean-forward="true" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+        <state relative-caret-position="176">
+          <caret line="61" column="77" lean-forward="false" selection-start-line="61" selection-start-column="77" selection-end-line="61" selection-end-column="77" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="40" lean-forward="false" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
+        <state relative-caret-position="345">
+          <caret line="104" column="0" lean-forward="true" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
           <folding />
         </state>
       </provider>

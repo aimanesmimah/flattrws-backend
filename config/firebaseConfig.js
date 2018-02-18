@@ -30,7 +30,7 @@ module.exports.getMarkedItems = (userId) => {
     return new Promise((resolve,reject) => {
         userRef.on('value',(snap) => {
 
-            return resolve(snap.val());
+            return resolve(snap.val().items);
         });
 
     });
@@ -39,7 +39,11 @@ module.exports.getMarkedItems = (userId) => {
 module.exports.addOneItem = (userId,payload) => {
     var userRef = markedItemsRef.child(userId);
     return new Promise((resolve,reject) => {
+        if(!userId)
+            return reject('no user');
+
        userRef.on('value',(snap)=> {
+
           var newItems = [...snap.val().items,payload];
 
           updateOrCreateItems(userId,newItems);
@@ -55,7 +59,7 @@ module.exports.removeOneItem = (userId,collectionId) => {
 
        return new Promise((resolve,reject) => {
            userRef.on('value',(snap) => {
-           var newItems = snap.val().items.filter((item) => item.name !== collectionId);
+           var newItems = snap.val().items.filter((item) => item.collectionId !== collectionId);
            if(!newItems.length)
                return reject("list is empty");
 
