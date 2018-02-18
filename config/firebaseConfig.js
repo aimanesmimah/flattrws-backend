@@ -42,15 +42,17 @@ module.exports.getMarkedItems = getMarkedItems;
 module.exports.addOneItem = (userId,payload) => {
 
     return new Promise((resolve,reject) => {
-
+        var newItems ;
         getMarkedItems(userId).then(items => {
-            var newItems = [...items,payload];
-
+            newItems = [...items,payload];
             updateOrCreateItems(userId,newItems);
+            return resolve(newItems);
         }).catch(err => {
-            updateOrCreateItems(userId,[payload]);
+            newItems = [payload];
+            updateOrCreateItems(userId,newItems);
+            return resolve(newItems);
         });
-        return resolve(newItems);
+
     });
 }
 
