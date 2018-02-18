@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-//firebaseConfig.updateOrCreateItems('ddddddddddd',payload);
+//firebaseConfig.updateOrCreateItems('aaaaaaaaaaaaa',[]);
 //firebaseConfig.getMarkedItems('ddddddddddd').then(data => console.log(data));
 /*firebaseConfig.removeOneItem('ddddddddddd','sara')
     .then(newItems =>{
@@ -31,6 +31,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
     });
 */
 
+/*var payload = {
+    name : "haay",
+    pass : "reus"
+}
+
+firebaseConfig.addOneItem('ffffffffff',payload).then(items => {
+    console.log(items)
+}).catch(err => console.log("app.js " + err));
+*/
 
 app.set('port', port);
 
@@ -88,8 +97,8 @@ app.post('/firebase/add',(req,res)=> {
 
     firebaseConfig.addOneItem(userId,item).then(newItems => {
         res.json({success : true, message : "item added successfully", items : newItems });
-    }, err=> {
-        res.json({success : false,message : "an expected error happened. try again"})
+    }).catch(err=> {
+        res.json({success : false,message : err})
     });
 
 });
@@ -99,10 +108,10 @@ app.get('/firebase/delete/:userId/:itemId',(req,res)=> {
    var collectionId = req.params.itemId;
 
    firebaseConfig.removeOneItem(userId,collectionId).then(newItems => {
-      res.json({success : true, message : "item removed successfully", items : newItems })
-   },err=>{
+       res.json({success : true, message : "item removed successfully", items : newItems })
+   }).catch(err=>{
        res.json({success : false,message : "an expected error happened. try again"})
-  });
+   });
 });
 
 app.get('/firebase/items/:id',(req,res)=> {

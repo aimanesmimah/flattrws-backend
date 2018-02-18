@@ -23,32 +23,32 @@ var updateOrCreateItems = function updateOrCreateItems(userId,items) {
 module.exports.updateOrCreateItems = updateOrCreateItems ;
 
 
-module.exports.getMarkedItems = (userId) => {
+var getMarkedItems = function getMarkedItems(userId){
     var userRef = markedItemsRef.child(userId);
 
 
     return new Promise((resolve,reject) => {
         userRef.on('value',(snap) => {
-
+            if(!snap.val())
+                return reject('no user');
             return resolve(snap.val().items);
         });
 
     });
 }
 
+module.exports.getMarkedItems = getMarkedItems;
+
 module.exports.addOneItem = (userId,payload) => {
-    var userRef = markedItemsRef.child(userId);
+
     return new Promise((resolve,reject) => {
-        if(!userId)
-            return reject('no user');
 
-       userRef.on('value',(snap)=> {
+        getMarkedItems(userId).then(items => {
+            var newItems = [...items,payload];
 
-          var newItems = [...snap.val().items,payload];
-
-          updateOrCreateItems(userId,newItems);
-          return resolve(newItems);
-       });
+            updateOrCreateItems(userId,newItems);
+            return resolve(newItems);
+        }).catch(err => reject(err));
     });
 }
 
@@ -58,14 +58,12 @@ module.exports.removeOneItem = (userId,collectionId) => {
 
 
        return new Promise((resolve,reject) => {
-           userRef.on('value',(snap) => {
-           var newItems = snap.val().items.filter((item) => item.collectionId !== collectionId);
-           if(!newItems.length)
-               return reject("list is empty");
 
-           updateOrCreateItems(userId,newItems);
-           return resolve(newItems);
-           });
+           getMarkedItems(userId).then(items => {
+               var newItems = items.filter((item) => item.collectionId !== collectionId);
+               updateOrCreateItems(userId,newItems);
+               return resolve(newItems);
+           }).catch(err => reject(err));
 
     });
 
