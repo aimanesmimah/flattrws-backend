@@ -1,4 +1,5 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var middlewares = require('./middlewares');
 var oauthConfig = require('./config/oauthConfig');
 var firebaseConfig = require('./config/firebaseConfig');
@@ -15,6 +16,9 @@ app.use(function(req, res, next) {
     res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 //firebaseConfig.updateOrCreateItems('ddddddddddd',payload);
@@ -76,6 +80,11 @@ app.get('/getToken/:code',(req,res)=> {
     else{
         res.json({success : false , message : "your authentication code is invalid"});
     }
+});
+
+app.post('/firebase/add',(req,res)=> {
+    console.log(req.body);
+    res.json({success : true});
 });
 
 app.listen(port,()=> {
