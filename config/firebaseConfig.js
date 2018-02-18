@@ -47,8 +47,10 @@ module.exports.addOneItem = (userId,payload) => {
             var newItems = [...items,payload];
 
             updateOrCreateItems(userId,newItems);
-            return resolve(newItems);
-        }).catch(err => reject(err));
+        }).catch(err => {
+            updateOrCreateItems(userId,newItems);
+        });
+        return resolve(newItems);
     });
 }
 
