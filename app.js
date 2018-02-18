@@ -1,6 +1,8 @@
 var express = require('express');
 var middlewares = require('./middlewares');
 var oauthConfig = require('./config/oauthConfig');
+var firebaseConfig = require('./config/firebaseConfig');
+
 
 var port = normalizePort(process.env.PORT || '7000');
 
@@ -15,6 +17,15 @@ app.use(function(req, res, next) {
 });
 
 
+//firebaseConfig.updateOrCreateItems('ddddddddddd',payload);
+//firebaseConfig.getMarkedItems('ddddddddddd').then(data => console.log(data));
+/*firebaseConfig.removeOneItem('ddddddddddd','sara')
+    .then(newItems =>{
+        console.log(newItems)
+    }, err => {
+        console.log(err);
+    });
+*/
 
 app.set('port', port);
 
