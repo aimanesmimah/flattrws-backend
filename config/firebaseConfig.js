@@ -57,14 +57,11 @@ module.exports.addOneItem = (userId,payload) => {
 }
 
 module.exports.removeOneItem = (userId,collectionId) => {
-    var userRef = markedItemsRef.child(userId);
-
-
 
        return new Promise((resolve,reject) => {
 
            getMarkedItems(userId).then(items => {
-               var newItems = items.filter((item) => item.collectionId !== collectionId);
+               var newItems = items.filter(item => item.collectionId != collectionId);
                updateOrCreateItems(userId,newItems);
                return resolve(newItems);
            }).catch(err => reject(err));

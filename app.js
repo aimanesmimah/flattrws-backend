@@ -22,8 +22,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 //firebaseConfig.updateOrCreateItems('aaaaaaaaaaaaa',[]);
-//firebaseConfig.getMarkedItems('ddddddddddd').then(data => console.log(data));
-/*firebaseConfig.removeOneItem('ddddddddddd','sara')
+//firebaseConfig.getMarkedItems('jgglx5').then(data => console.log(data));
+/*firebaseConfig.removeOneItem('jgglx5','79687345')
     .then(newItems =>{
         console.log(newItems)
     }, err => {
@@ -103,9 +103,9 @@ app.post('/firebase/add',(req,res)=> {
 
 });
 
-app.get('/firebase/delete/:userId/:itemId',(req,res)=> {
-   var userId = req.params.userId;
-   var collectionId = req.params.itemId;
+app.post('/firebase/delete',(req,res)=> {
+   var userId = req.body.userId;
+   var collectionId = req.body.itemId;
 
    firebaseConfig.removeOneItem(userId,collectionId).then(newItems => {
        res.json({success : true, message : "item removed successfully", items : newItems })
