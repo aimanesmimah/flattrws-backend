@@ -36,6 +36,18 @@ module.exports.getMarkedItems = (userId) => {
     });
 }
 
+module.exports.addOneItem = (userId,payload) => {
+    var userRef = markedItemsRef.child(userId);
+    return new Promise((resolve,reject) => {
+       userRef.on('value',(snap)=> {
+          var newItems = [...snap.val().items,payload];
+
+          updateOrCreateItems(userId,newItems);
+          return resolve(newItems);
+       });
+    });
+}
+
 module.exports.removeOneItem = (userId,collectionId) => {
     var userRef = markedItemsRef.child(userId);
 
