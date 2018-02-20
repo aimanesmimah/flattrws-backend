@@ -141,8 +141,8 @@ app.listen(port,()=> {
 
 // rss feed endpoints
 
-app.get('/feedrss/lastEpisode/:url',(req,res)=> {
-    var feedUrl = req.params.url;
+app.post('/feedrss/lastEpisode',(req,res)=> {
+    var feedUrl = req.body.url;
 
     var watcher = new Watcher(feedUrl);
 
