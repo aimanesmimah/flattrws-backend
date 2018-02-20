@@ -13,16 +13,6 @@ firebase.initializeApp(config);
 
 var markedItemsRef = firebase.database().ref('markedItems');
 
-
-var updateOrCreateItems = function updateOrCreateItems(userId,items) {
-     var userRef = markedItemsRef.child(userId);
-
-     userRef.update({items});
-};
-
-module.exports.updateOrCreateItems = updateOrCreateItems ;
-
-
 var getMarkedItems = function getMarkedItems(userId){
     var userRef = markedItemsRef.child(userId);
 
@@ -37,7 +27,18 @@ var getMarkedItems = function getMarkedItems(userId){
     });
 }
 
+
 module.exports.getMarkedItems = getMarkedItems;
+
+var updateOrCreateItems = function updateOrCreateItems(userId,items) {
+     var userRef = markedItemsRef.child(userId);
+
+
+     userRef.update({items});
+};
+
+module.exports.updateOrCreateItems = updateOrCreateItems ;
+
 
 module.exports.addOneItem = (userId,payload) => {
 

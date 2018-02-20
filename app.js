@@ -134,6 +134,24 @@ app.get('/firebase/deleteAll/:id',(req,res) => {
    res.json({success : true , message : "items removed successfully"});
 });
 
+app.post('/firebase/removeAndAdd',(req,res)=>{
+    var userId = req.body.userId;
+    var item = req.body.markedItem;
+
+    firebaseConfig.removeOneItem(userId,item.collectionId).then(newItems => {
+        firebaseConfig.addOneItem(userId,item).then(newItems => {
+            res.json({success : true, message : "items updated successfully", items : newItems });
+        }).catch(err=> {
+            res.json({success : false,message : err});
+        });
+
+    }).catch(err=>{
+        res.json({success : false,message : "an expected error happened. try again"})
+    });
+
+
+});
+
 app.listen(port,()=> {
     console.log(`express server running on port : ${port}`);
 });
