@@ -150,7 +150,15 @@ app.post('/feedrss/lastEpisode',(req,res)=> {
         if(err)
             res.json({success : false, message : "some error has occured. Please try again"});
         else{
-           res.json({success : true , article : articles[articles.length-1]});
+            var lastArticle = articles[articles.length-1];
+            var article = {
+                title : lastArticle.title,
+                description : lastArticle.description,
+                pubdate : lastArticle.pubdate,
+                enclosures : lastArticle.enclosures
+            }
+
+           res.json({success : true , article : article});
         }
     })
 
