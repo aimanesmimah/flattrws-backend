@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var Watcher = require('rss-watcher');
 var middlewares = require('./middlewares');
 var oauthConfig = require('./config/oauthConfig');
 var firebaseConfig = require('./config/firebaseConfig');
@@ -135,6 +136,24 @@ app.get('/firebase/deleteAll/:id',(req,res) => {
 
 app.listen(port,()=> {
     console.log(`express server running on port : ${port}`);
+});
+
+
+// rss feed endpoints
+
+app.get('/feedrss/lastEpisode/:url',(req,res)=> {
+    var feedUrl = req.params.url;
+
+    var watcher = new Watcher(feedUrl);
+
+    watcher.run((err,articles) => {
+        if(err)
+            res.json({success : false, message : "some error has occured. Please try again"});
+        else{
+           res.json({success : true , article : articles[articles.length-1]});
+        }
+    })
+
 });
 
 function normalizePort(val) {
