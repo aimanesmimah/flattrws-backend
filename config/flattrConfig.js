@@ -20,3 +20,24 @@ module.exports.getAuthenticatedUser = token => {
             });
         });
 }
+
+
+module.exports.submitForflattrthing = (token,url,title) => {
+    var params = {title};
+
+    return new Promise((resolve,reject) => {
+       flattr.flattrs.url(token,url,'flattr_user',params,function (data) {
+           resolve(data);
+       })
+    });
+}
+
+module.exports.addForFlattr = (token,url,title) => {
+    var params = {title};
+
+    return new Promise((resolve,reject) => {
+        flattr.things.create(token,url,params,function (data) {
+           resolve(data);
+        });
+    })
+}

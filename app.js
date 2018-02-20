@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var Watcher = require('rss-watcher');
 var middlewares = require('./middlewares');
+var flattrConfig = require('./config/flattrConfig');
 var oauthConfig = require('./config/oauthConfig');
 var firebaseConfig = require('./config/firebaseConfig');
 
@@ -22,26 +23,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-//firebaseConfig.updateOrCreateItems('aaaaaaaaaaaaa',[]);
-//firebaseConfig.getMarkedItems('jgglx5').then(data => console.log(data));
-/*firebaseConfig.removeOneItem('jgglx5','79687345')
-    .then(newItems =>{
-        console.log(newItems)
-    }, err => {
-        console.log(err);
-    });
-*/
-
-/*var payload = {
-    name : "haay",
-    pass : "reus"
-}
-
-firebaseConfig.addOneItem('ffffffffff',payload).then(items => {
-    console.log(items)
-}).catch(err => console.log("app.js " + err));*/
-
-//firebaseConfig.removeAllItems('ffhjgjhgfff');
 
 app.set('port', port);
 
@@ -56,20 +37,17 @@ app.get('/authenticate',(req,res)=> {
 
 });
 
-app.get('/flattr',(req,res)=> {
-    const options = {
-        code : req.query.code
-    }
+app.post('/flattr',(req,res)=> {
+     const token = req.body.token;
+     const url = req.body.url;
+     const title = req.body.title;
 
-    oauthConfig.getAuthToken(options).then(
-        result => {
-            res.json(result);
-        },
-        error => {
-            res.json({success:false , message : "unexpected error has occured"});
-        }
-    );
-
+     flattrConfig.submitForflattrthing(token,url,title).then(data=> {
+         console.log(data);
+         res.json({success : true, data : data});
+     },err=> {
+         res.json({success : false, message : "something unexpected happened",err_message : err});
+     });
 
 });
 
@@ -152,11 +130,6 @@ app.post('/firebase/removeAndAdd',(req,res)=>{
 
 });
 
-app.listen(port,()=> {
-    console.log(`express server running on port : ${port}`);
-});
-
-
 // rss feed endpoints
 
 app.post('/feedrss/lastEpisode',(req,res)=> {
@@ -176,11 +149,18 @@ app.post('/feedrss/lastEpisode',(req,res)=> {
                 enclosures : lastArticle.enclosures
             }
 
-           res.json({success : true , article : article});
+            res.json({success : true , article : article});
         }
     })
 
 });
+
+
+app.listen(port,()=> {
+    console.log(`express server running on port : ${port}`);
+});
+
+
 
 function normalizePort(val) {
     var port = parseInt(val, 10);
