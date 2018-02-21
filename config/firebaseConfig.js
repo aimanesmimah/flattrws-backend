@@ -45,6 +45,12 @@ module.exports.addOneItem = (userId,payload) => {
     return new Promise((resolve,reject) => {
         var newItems ;
         getMarkedItems(userId).then(items => {
+            for(let i = 0; i < items.length ; i++){
+                if(items[i].collectionId === payload.collectionId){
+                    return reject("podcast already marked");
+                }
+            }
+
             newItems = [...items,payload];
             updateOrCreateItems(userId,newItems);
             return resolve(newItems);
