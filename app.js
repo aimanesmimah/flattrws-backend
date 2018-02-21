@@ -12,6 +12,8 @@ var port = normalizePort(process.env.PORT || '7000');
 
 const app = express().use(middlewares.logger);
 
+//using this express middleware to allow http requests with cors
+
 app.use(function(req, res, next) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -26,28 +28,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set('port', port);
 
+// test endpoint
 app.get('/',(req,res)=> {
     res.json({success:true});
 });
+
+//oauth endpoints
 
 app.get('/authenticate',(req,res)=> {
     console.log(oauthConfig.authUri());
 
     res.json({redirectUrl : oauthConfig.authUri()});
-
-});
-
-app.post('/flattr',(req,res)=> {
-     const token = req.body.token;
-     const url = req.body.url;
-     const title = req.body.title;
-
-     flattrConfig.submitForflattrthing(token,url,title).then(data=> {
-         console.log(data);
-         res.json({success : true, data : data});
-     },err=> {
-         res.json({success : false, message : "something unexpected happened",err_message : err});
-     });
 
 });
 
@@ -70,6 +61,24 @@ app.get('/getToken/:code',(req,res)=> {
         res.json({success : false , message : "your authentication code is invalid"});
     }
 });
+
+// flattr items endpoint
+
+app.post('/flattr',(req,res)=> {
+     const token = req.body.token;
+     const url = req.body.url;
+     const title = req.body.title;
+
+     flattrConfig.submitForflattrthing(token,url,title).then(data=> {
+         console.log(data);
+         res.json({success : true, data : data});
+     },err=> {
+         res.json({success : false, message : "something unexpected happened",err_message : err});
+     });
+
+});
+
+// firebase endpoints to persist user login session actions
 
 app.post('/firebase/add',(req,res)=> {
     var userId = req.body.userId;
