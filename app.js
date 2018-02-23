@@ -1,11 +1,13 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var Watcher = require('rss-watcher');
+var passport = require('passport');
 var middlewares = require('./middlewares');
 var flattrConfig = require('./config/flattrConfig');
 var oauthConfig = require('./config/oauthConfig');
 var firebaseConfig = require('./config/firebaseConfig');
-
+var passportStrategy = require('./config/passportConfig');
+passport.use(passportStrategy);
 
 var port = normalizePort(process.env.PORT || '7000');
 
@@ -26,11 +28,21 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 
+
 app.set('port', port);
 
 // test endpoint
 app.get('/',(req,res)=> {
     res.json({success:true});
+});
+
+// passport authentication test
+
+app.get('/pass',passport.authenticate('token', { session: false }),(req,res) => {
+     if(req.user)
+         res.json({success : true, user : req.user});
+     else
+         res.json({success : false});
 });
 
 //oauth endpoints
