@@ -1,9 +1,10 @@
 var TokenAuthStrategy = require('passport-token-auth');
+var passport = require('passport');
 var firebaseConfig = require('./firebaseConfig');
 
 
 
-export default new TokenAuthStrategy((token, done)=> {
+passport.use(new TokenAuthStrategy((token, done)=> {
     firebaseConfig.getUserByToken(token).then(userId => {
         if(!userId)
             return done(null,false);
@@ -13,4 +14,7 @@ export default new TokenAuthStrategy((token, done)=> {
     }).catch(err => {
         return done(err);
     });
-})
+}));
+
+
+export default passport;

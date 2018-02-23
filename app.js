@@ -1,13 +1,11 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var Watcher = require('rss-watcher');
-var passport = require('passport');
 var middlewares = require('./middlewares');
 var flattrConfig = require('./config/flattrConfig');
 var oauthConfig = require('./config/oauthConfig');
 var firebaseConfig = require('./config/firebaseConfig');
-var passportStrategy = require('./config/passportConfig');
-passport.use(passportStrategy);
+var passport = require('./config/passportConfig');
 
 var port = normalizePort(process.env.PORT || '7000');
 
